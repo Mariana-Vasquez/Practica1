@@ -87,10 +87,81 @@ int main()
             espera();
             break;}
 
-        default:  //por defecto cuando se ingresa una opcion invalida
-            cout<<"la opcion ingresada no es correcta, intentelo denuevo. ";
+        case 3:
+        {
+            int mes = 0;
+            int dia = 0;
+            int meses31[]={1,3,5,7,8,10,12};
+            int meses30[]={4,6,9,11};
+
+            //ingresar el mes
+            cout<<"Por favor, ingrese el mes: "<<endl;
+            //cout<<"Si el mes es de solo un digito, digite un 0 primero y luego el numero del mes; ejemplo: Mayo seria 05 "<<endl;
+            cin>>mes;
+
+            system("cls");
+
+            //validacion del mes
+            if(mes>12)
+            cout<<mes<<" El mes ingresado no es valido"<<endl;
+
+            //ingresar el dia
+            else
+            {
+                cout<<"Por favor ingrese el dia: "<<endl;
+                cout<<"Si el dia es de solo un digito, digite un 0 primero y luego el numero del dia; ejemplo: el quinto dia seria 05 "<<endl;
+                cin>>dia;
+
+                system("cls");
+
+                if(dia>31)
+                    cout<<dia<<" es un dia invalido"<<endl;
+
+                else{
+                    //caso especial: mes de febrero
+                    if(mes==02){
+                        if(dia==29)
+                            cout<<dia<<"/"<<mes<<" es valido en ano bisiesto"<<endl;
+                        else
+                        {
+                            if(dia>28)
+                                cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+                            else
+                                cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+                        }
+                    }
+
+
+                    for(int i = 0; i < 7; i++)
+                    {
+                        //meses con 31 dias
+                        if(mes==meses31[i])
+                        cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+                    }
+
+                    for(int i = 0; i < 4; i++){
+                        //meses con 30 dias
+                        if(mes==meses30[i])
+                        {
+                            if(dia > 30)
+                            cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+                            else
+                            cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+                        }
+                    }
+
+                }
+            }
+
             espera();
             break;
+        }
+
+        default:  //por defecto cuando se ingresa una opcion invalida
+            {cout<<"la opcion ingresada no es correcta, intentelo denuevo. ";
+            espera();
+            break;}
+
         }
 
     }
