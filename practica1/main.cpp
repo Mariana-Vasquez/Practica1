@@ -157,6 +157,260 @@ int main()
             break;
         }
 
+        case 4:
+        {
+            int A , B , hh , mm;
+
+            //se le piden los datos al usuario
+            cout<<"Ingrese el primr numero: "<<endl;
+            cin>>A,
+
+            system("cls"); //--> vamos limpiando la pantalla para no sobre cargar
+
+            cout<<"Ingrese el segundo numero: "<<endl;
+            cin>>B;
+
+            system("cls");
+
+            //se hace la validacion de los tiempos
+            if(A/100 >=24 and A%100>=60)
+                cout<<A<<" es un tiempo invalido"<<endl;
+            else if(B/100 >=24 and B%100>=60)
+                cout<<B<<" es un tiempo invalido"<<endl;
+
+            else
+            {
+                hh=((A/100)+(B/100));
+                mm=((A%100)+(B%100));
+
+                if(mm>=60)
+                {
+                    hh +=mm/60;
+                    mm = mm%60;
+                }
+
+                cout<<"La hora es: "<<hh<<" : "<<mm<<endl;
+            }
+
+            espera();
+            break;
+        }
+
+        case 5:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 6:
+        {
+            //declaramos variables que nos pueden ayudar hacer el ejercicio
+            int Num, contador = 0, denominador = 1;
+            float suma = 0, aux = 0;
+
+            //le pedimos al usuario que ingrese la cantidad de terminos de la aproximcion
+            cout<<"Ingrese la cantidad de terminos de la aproximacion: "<<endl;
+            cin>>Num;
+
+            system("cls");                              //--->limpiamos la pantalla
+
+            for(int i = 0; i < Num; i++)                //Hacemos las fraciones
+            {
+                if(contador == 0)
+                    aux= 1 ;
+                else
+                {   while(contador!=0)                  //aqui hacemos los factoriales
+                    {
+                        denominador = contador * denominador;
+                        contador-=1;
+                    }
+                    aux = (float)1.0 / denominador;
+                }
+
+                suma += aux;                            //vamos sumando los resultados de las fracciones
+                contador = i+1;
+            }
+
+            cout<<"e es aproximadamente: "<<suma<<endl;
+
+            espera();
+            break;
+        }
+
+        case 7:
+        {
+            int suma=0, a=1, b=1, c, Num;
+
+            cout<<"Ingrese un numero de terminos de la serie de fibonaci: "<<endl;
+            cin>>Num;
+
+            for(int i = 0; i < Num; i++)
+            {
+                c=a+b;
+                a=b;
+                b=c;
+
+                if(c%2==0)
+                    if(c<Num)
+                        suma+=c;
+            }
+
+            cout<<"El resultado de la suma es: "<<suma<<endl;
+
+            espera();
+            break;
+        }
+
+        case 8:      // terminar -> casi listo falta imprimer primero los multiplos de a y luego los de b
+        {
+            int a = 0, b = 0, c = 0, suma = 0, i = 0;;
+            int multiploA = 0 , multiploB = 0;
+
+            cout<<"Ingrese los numeros segun corresponda: "<<endl;
+            cout<<"Primer numero: ";
+            cin>>a;
+            cout<<endl;
+            cout<<"Segundo numero: ";
+            cin>>b;
+            cout<<endl;
+            cout<<"Tercer numero: ";
+            cin>>c;
+
+            system("cls");
+
+            while(multiploA < c and multiploB < c)
+            {
+
+
+                multiploA = a * i;
+                multiploB = b * i;
+
+                //verificamos si los multiplos son iguales y si son menores a c
+                if(multiploA == multiploB)
+                {
+                    if(multiploA < c)
+                    {
+                        suma += multiploA;
+                        cout<<multiploA;
+                    }
+                }
+                //verificamos que el multiplo sea menor a c
+                else
+                {
+                    if(multiploA < c)
+                    {
+                        suma += multiploA;
+                        cout<<" + "<<multiploA<<" + ";
+                }
+
+                if(multiploB < c)
+                {
+                    suma += multiploB;
+                    cout<<multiploB;
+                }
+            }
+
+                i++;                //le sumamos a i que es el factor para obtener el multiplo
+            }
+
+            cout<<" = " << suma;
+
+
+            espera();
+            break;
+        }
+
+        case 9:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 10:    //terminar
+        {
+
+           int n = 0;
+           int numero = 2;
+           int contador = 0;
+
+           cout<<"Escriba el n esimo numero primo que quiera encontrar: "<<endl;
+           cin>>n;
+
+           system("cls");
+
+           while(contador != n){
+                for(int j = 0; j < numero / 2; j++)
+                {
+
+
+
+                }
+
+           }
+
+            espera();
+            break;}
+
+        case 11:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 12:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 13:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 14:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 15:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 16:
+        {
+
+
+
+            espera();
+            break;}
+
+        case 17:
+        {
+
+
+
+            espera();
+            break;}
+
         default:  //por defecto cuando se ingresa una opcion invalida
             {cout<<"la opcion ingresada no es correcta, intentelo denuevo. ";
             espera();
