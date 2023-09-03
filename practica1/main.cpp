@@ -265,7 +265,7 @@ int main()
 
         case 8:      // terminar -> casi listo falta imprimer primero los multiplos de a y luego los de b
         {
-            int a = 0, b = 0, c = 0, suma = 0, i = 0;;
+            int a = 0, b = 0, c = 0, suma = 0;
             int multiploA = 0 , multiploB = 0;
 
             cout<<"Ingrese los numeros segun corresponda: "<<endl;
@@ -280,42 +280,32 @@ int main()
 
             system("cls");
 
-            while(multiploA < c and multiploB < c)
+            for(int i = 1; i < c; i++)        //Sacamos los multiplos del primer numero
             {
-
-
-                multiploA = a * i;
-                multiploB = b * i;
-
-                //verificamos si los multiplos son iguales y si son menores a c
-                if(multiploA == multiploB)
+                if(a*i < c)
                 {
-                    if(multiploA < c)
+                    multiploA = a * i;
+                    suma += multiploA;
+
+                    cout<<multiploA<<" + ";
+                }
+            }
+
+            for(int i = 1; i < c; i++)
+            {
+                if(b*i < c)
+                {
+                    multiploB = b * i;
+                    if(multiploB%multiploA!=0)
                     {
-                        suma += multiploA;
-                        cout<<multiploA;
+                        suma += multiploB;
+                        cout<<multiploB<<" + ";
+
                     }
                 }
-                //verificamos que el multiplo sea menor a c
-                else
-                {
-                    if(multiploA < c)
-                    {
-                        suma += multiploA;
-                        cout<<" + "<<multiploA<<" + ";
-                }
-
-                if(multiploB < c)
-                {
-                    suma += multiploB;
-                    cout<<multiploB;
-                }
             }
 
-                i++;                //le sumamos a i que es el factor para obtener el multiplo
-            }
-
-            cout<<" = " << suma;
+            cout<<" = " << suma<< endl;
 
 
             espera();
@@ -361,27 +351,38 @@ int main()
         case 10:    //terminar
         {
 
-           int n = 0;
-           int numero = 2;
-           int contador = 0;
+           int n = 0, numero = 2, contador = 1, primo = 0;
+
 
            cout<<"Escriba el n esimo numero primo que quiera encontrar: "<<endl;
            cin>>n;
 
            system("cls");
 
+           cout<<"Tenga encuenta que un numero primo es un numero entero que solo es divisible por 1 y por si mismo"<<endl;
+           cout<<"El numero 1 no es considerado primo ya que solo tiene un divisor"<<endl;
+
+           espera();
+
            while(contador != n){
-                for(int j = 0; j < numero / 2; j++)
+                bool primos = false;
+
+                for(int j = 2; j < numero; j++)
                 {
-
-
-
+                    if(numero%j!=0)
+                    {
+                        primos = true;
+                        primo=numero;
+                        contador += 1;
+                    }
                 }
+                numero++;
 
            }
 
-            espera();
-            break;}
+           cout<<"El "<< n <<" esimo numero primo es: "<<primo<<endl;
+           espera();
+           break;}
 
         case 11:
         {
