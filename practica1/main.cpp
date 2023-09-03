@@ -324,8 +324,36 @@ int main()
 
         case 9:
         {
+            int n = 0, cifras = 0, suma = 0, aux =0;
 
 
+            cout<<"Ingrese un numero entero: "<<endl;
+            cin>>n;
+
+            system("cls");
+
+            while(n >0){
+                cifras = n % 10;
+                n = n /10;
+
+                aux = 0;
+
+                if(cifras%2==0)
+                {
+                    for(int i = 1; i < cifras; i++)
+                    {aux +=  cifras * cifras;}
+                }
+
+                else
+                {
+                    for(int i = 1; i <= cifras; i++)
+                    {aux +=  cifras * cifras;}
+                }
+
+                suma = suma + aux;
+            }
+
+            cout<<"La suma de todos los digitos elevados a si mismos del nunmero que ingreso es: "<<suma<<endl;
 
             espera();
             break;}
