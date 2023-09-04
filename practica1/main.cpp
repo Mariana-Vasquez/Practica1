@@ -401,8 +401,29 @@ int main()
 
         case 13:
         {
+            int n = 0, contador = 0, numero = 2, suma = 0;
 
 
+            cout<<"Escriba el n esimo numero primo hasta el que quiera sumar: "<<endl;
+            cin>>n;
+
+            cout<<"Tenga encuenta que un numero primo es un numero entero que solo es divisible por 1 y por si mismo"<<endl;
+            cout<<"El numero 1 no es considerado primo ya que solo tiene un divisor"<<endl;
+
+            espera();
+
+            // Buscar el enésimo número primo hasta el cual se quiere sumar...              -> lo tomamos del caso 10
+            while (contador < n) {
+                if (esPrimo(numero)) {          //declaramos una funcion especial que nos diga si el numero es primo
+                    contador++;
+                    if(numero<n) suma += numero;
+                }
+                if (contador < n) {
+                    numero++;
+                }
+            }
+
+            cout<<"El resultado de la suma es: "<<suma<<endl;
 
             espera();
             break;}
