@@ -10,6 +10,7 @@ int main()
     //Declaracion de funciones
     void espera();
     void menu();
+    bool esPrimo(int num);
 
     while(opcion!=0){
 
@@ -263,7 +264,7 @@ int main()
             break;
         }
 
-        case 8:      // terminar -> casi listo falta imprimer primero los multiplos de a y luego los de b
+        case 8:
         {
             int a = 0, b = 0, c = 0, suma = 0;
             int multiploA = 0 , multiploB = 0;
@@ -291,12 +292,12 @@ int main()
                 }
             }
 
-            for(int i = 1; i < c; i++)
+            for(int i = 1; i < c; i++)      //Sacamos los multiplos del segundo numero
             {
                 if(b*i < c)
                 {
                     multiploB = b * i;
-                    if(multiploB%multiploA!=0)
+                    if(multiploB%multiploA!=0)      //Aqui evaluamos si el multiplo de b existe en a, para no imprimir lo dos veces y ignorarlo de la suma
                     {
                         suma += multiploB;
                         cout<<multiploB<<" + ";
@@ -310,6 +311,9 @@ int main()
 
             espera();
             break;
+
+
+            //no se como dejar sin el mas al final, trate de muchas maneras diferentes pero no me dio, pense en un condicional pero daba igual
         }
 
         case 9:
@@ -348,10 +352,10 @@ int main()
             espera();
             break;}
 
-        case 10:    //terminar
+        case 10:
         {
 
-           int n = 0, numero = 2, contador = 1, primo = 0;
+           int n = 0, contador = 0, numero = 2;
 
 
            cout<<"Escriba el n esimo numero primo que quiera encontrar: "<<endl;
@@ -364,23 +368,18 @@ int main()
 
            espera();
 
-           while(contador != n){
-                bool primos = false;
-
-                for(int j = 2; j < numero; j++)
-                {
-                    if(numero%j!=0)
-                    {
-                        primos = true;
-                        primo=numero;
-                        contador += 1;
-                    }
+           // Buscar el enésimo número primo
+           while (contador < n) {
+                if (esPrimo(numero)) {          //declaramos una funcion especial que nos diga si el numero es primo
+                    contador++;
                 }
-                numero++;
-
+                if (contador < n) {
+                    numero++;
+                }
            }
 
-           cout<<"El "<< n <<" esimo numero primo es: "<<primo<<endl;
+
+           cout<<"El "<< n <<" esimo numero primo es: "<<numero<<endl;
            espera();
            break;}
 
@@ -478,4 +477,16 @@ void menu(){
 void espera(){
     system("pause");
     system("cls");
+}
+
+bool esPrimo(int num) {         //Necesitamos saber si el numero es primo o no, por ello necesitamos una respuesta booleana
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; i++) {        // i = 2; 2*2 = 4       si 4 <= 2 NO ENTRA EN EL FOR        si 4<=4 ENTRA AL FOR y lo mismo con el resto de los numeros verificando si el residuo sea 0 para los NO primos
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
