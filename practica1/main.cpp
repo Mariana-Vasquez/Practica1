@@ -446,8 +446,32 @@ int main()
 
         case 11:
         {
+           int MCM, n, j;
+           bool aux = true;     //necesitamos que siga ingresando al ciclo para que busque el MCM, cuado lo halla se cambia a falso
 
+           cout << "Problema 11." << endl << "Ingrese un numero para calcular el MCM de los numeros entre 1 y dicho numero: ";
 
+           cin >> n;
+           j = n - 1;           //hallamos el numero inmediatamente menor al limite superior
+           MCM = n * j;         //el MCM no debe ser mayor al producto del limite superior y su numero inmediatamente inferior
+
+           while(aux==true)
+           {
+                for (int i = n; i >= 1; i--)
+                {
+                    if((MCM % i) !=0)       //Esto quiere decir que el MCM no es el mismo para el numero i que para el resto de los numero, entonces se tiene que cambiar
+                    {
+                        MCM = n * (n + j);  //En este caso aumentamos el rango cambiando el numero inmediatamente inferior del limite superior
+                        j++;
+                        break;
+                    }
+                    if(i == 1)              //Cuando se llegue a uno en i, se deberia encontrar el MCM
+                    {
+                        cout << "El minimo comun multiplo es: " << MCM << endl;
+                        aux = false;        //-> lo cambianmos para salir del while
+                    }
+                }
+           }
 
             espera();
             break;}
