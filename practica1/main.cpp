@@ -199,7 +199,68 @@ int main()
 
         case 5:
         {
+            int n;
 
+            cout << "Ingrese un numero impar n: ";
+            cin >> n;
+
+            //Se verifica que el numero ingresado sea un numero impar
+            if (n % 2 == 0) {
+                cout << "El numero ingresado no es impar. Debe ser impar para construir el patron." << endl;
+                return 1;           //-> identifica que el numero ingresado no fue impar y devuelve la operacion al comando inicial, es decir, vuelve a cout/cin
+            }
+
+            // Imprimir la parte superior del patrón
+            for (int i = 1; i <= n / 2 + 1; i++) {          //->se cuenta los espacios en blancos antes de la mitad del numero para acomodar el asterisco; se le suma uno por que el programa toma el numero inferior de la division y necesitamos es la aproximacion al  numero mayor
+                // Imprimir espacios en blanco
+                for (int j = 1; j <= n / 2 + 1 - i; j++) {
+                    cout << " ";
+                }
+                // Imprimir asteriscos
+                for (int j = 1; j <= 2 * i - 1; j++) {      //-> imprime los asteriscos luego de imprimir los espacios; se le multiplica por i y se le resta uno para definir la cantidad de asteriscos que se deben imprimir
+                    cout << "*";
+                }
+                cout << endl;
+            }
+
+            /*
+             *
+             * esta parte del patron debe imprimir un triangulo equilatero con el pico hacia arriba
+             *
+             * ejemplo n = 5
+             *
+             *
+             *        *
+             *       ***
+             *      *****
+             *
+             *
+            */
+
+            // Imprimir la parte inferior del patrón
+            for (int i = n / 2; i >= 1; i--) {
+                // Imprimir espacios en blanco
+                for (int j = 1; j <= n / 2 + 1 - i; j++) {
+                    cout << " ";
+                }
+                // Imprimir asteriscos
+                for (int j = 1; j <= 2 * i - 1; j++) {
+                    cout << "*";
+                }
+                cout << endl;
+            }
+
+            /*
+             *
+             * esta parte del patron debe imprimir un triangulo equilatero con el pico hacia abajo
+             * pero aqui no se imprime a partir del n ingresado si no del n-1 ingresado ya que no se quiere repetir la ultima linea
+             *
+             * ejemplo n = 5
+             *
+             *       ***
+             *        *
+             *
+            */
 
 
             espera();
