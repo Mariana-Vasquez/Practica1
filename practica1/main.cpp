@@ -482,18 +482,22 @@ int main()
 
         case 12:
         {
-            /*int N, numero=1;
+            int fac = 2, num, mayor;
 
-            cout<<"Ingrese el numero al cualquiere calcular su maximo factor primo: "<<endl;
-            cin>>N;
+            cout<<"Ingrese el numero para buscar su maximo factor primo: "<<endl;
+            cin>>num;
 
-            while(numero<N)
+            mayor= num;
+
+            while(fac<=num)
             {
-                if(esPrimo(numero)){
-                    if(n>b && n<N && n!=1)
-                }
+                if(num%fac==0) num = num / fac;
+
+                else
+                    fac = fac +1;
             }
-            */
+
+            cout<<"El maximo factor primo de "<< mayor << " es " << fac<<endl;
 
             espera();
             break;}
