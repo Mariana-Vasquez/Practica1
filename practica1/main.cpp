@@ -11,6 +11,9 @@ int main()
     void espera();
     void menu();
     bool esPrimo(int num);
+    int Semilla(int k);
+    int NTer(int k);
+    int Terminos(int jM);
 
     while(opcion!=0){
 
@@ -444,6 +447,7 @@ int main()
            espera();
            break;}
 
+
         case 11:
         {
            int MCM, n, j;
@@ -478,8 +482,18 @@ int main()
 
         case 12:
         {
+            /*int N, numero=1;
 
+            cout<<"Ingrese el numero al cualquiere calcular su maximo factor primo: "<<endl;
+            cin>>N;
 
+            while(numero<N)
+            {
+                if(esPrimo(numero)){
+                    if(n>b && n<N && n!=1)
+                }
+            }
+            */
 
             espera();
             break;}
@@ -531,8 +545,29 @@ int main()
 
         case 16:
         {
+            int k = 0, jM = 0, contador1 = 0, opcion2;
 
+            cout<<"Ingrese el termino limite, para buscar la semilla que genere la serie de Collatz mas larga: "<<endl;
+            cin>>k;
 
+            jM = Semilla(k);
+
+            contador1 = NTer(k);
+
+            cout<<jM<<" es la semilla mas larga y tiene: "<<contador1<<" terminos"<<endl<<endl;
+
+            cout<<"Quiere saber los terminos de la serie? presione 1 para si y 0 para no "<<endl;
+            cin>>opcion2;
+
+            cout<<endl;
+
+            if(opcion2 == 1)
+            {
+                cout<<jM<< " ";
+                Terminos(jM);
+            }
+
+            cout<<endl;
 
             espera();
             break;}
@@ -595,4 +630,93 @@ bool esPrimo(int num) {         //Necesitamos saber si el numero es primo o no, 
         }
     }
     return true;
+}
+
+int Semilla(int k){
+    int contador, sigterm, contador1 = 0, jM;
+
+    for(int j = 1; j < k; j++)
+    {
+        sigterm = j;
+        contador=1;
+        while(sigterm>1)
+        {
+            if(sigterm % 2 == 0)  //miramos a ver si es par
+            {
+                sigterm = sigterm /2;
+                contador ++;
+            }
+
+            else                //si es impar
+            {
+                sigterm = (3*sigterm)+1;
+                contador++;
+
+            }
+        }
+
+        if(contador > contador1)
+        {
+            contador1= contador;
+            jM = j;
+        }
+    }
+
+    return jM;
+}
+
+int NTer(int k){
+    int contador, sigterm, contador1 = 0;
+
+    for(int j = 1; j < k; j++)
+    {
+        sigterm = j;
+        contador=1;
+        while(sigterm>1)
+        {
+            if(sigterm % 2 == 0)  //miramos a ver si es par
+            {
+                sigterm = sigterm /2;
+                contador ++;
+            }
+
+            else                //si es impar
+            {
+                sigterm = (3*sigterm)+1;
+                contador++;
+
+            }
+        }
+
+        if(contador > contador1)
+        {
+            contador1= contador;
+        }
+    }
+
+    return contador1;
+}
+
+int Terminos(int jM){
+    int sigterm;
+
+        sigterm = jM;
+
+        while(sigterm>1)
+        {
+            if(sigterm % 2 == 0)  //miramos a ver si es par
+            {
+                sigterm = sigterm /2;
+                cout<<sigterm<<" ";
+            }
+
+            else                //si es impar
+            {
+                sigterm = (3*sigterm)+1;
+                cout<<sigterm<<" ";
+
+            }
+        }
+
+    return 0;
 }
