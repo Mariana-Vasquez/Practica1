@@ -574,8 +574,34 @@ int main()
 
         case 17:
         {
+            int k=0;
+            cout <<"Ingrese un numero k para calcular el primer numero triangular con k divisores: ";
+            cin >> k;
 
+            if (k == 1) cout << "El numero es: " << k << " que tiene " << k << " divisores";
 
+            else
+            {
+                int i = 2;
+                int count = 2;
+                int enesimo;
+                while (count < k)
+                {
+                    enesimo = (i * (i + 1)) / 2;  //-> utilizamos la formula del n esimo nuemro triangular
+                    int nueve = enesimo / 2;
+                    count = 2;
+                    for (int j = 2; j <= nueve; j++)
+                    {
+                        if ((enesimo % j) == 0)
+                        {
+                            count++;
+                        }
+                    }
+
+                    i++;
+                }
+                cout << "El numero es: " << enesimo << " que tiene " << count << " divisores"<<endl;
+            }
 
             espera();
             break;}
