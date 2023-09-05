@@ -539,14 +539,18 @@ int main()
 
             while(found==false){
                 for(;A<1000;A++){
+
                     int acumulador = A*B;
                     int auxiliar = acumulador;
                     int C1=0;
+
                     while(auxiliar>0){
+
                         //cambiar C por acumulador dado que contiene el valor de la multiplicacion
                         C1 = C1+auxiliar%10;
                         C1 = C1*10;
                         auxiliar = auxiliar/10;
+
                         if (C1/10==acumulador){
                             found = true;
                             acumulador2 = C1/10;
