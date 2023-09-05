@@ -529,8 +529,33 @@ int main()
 
         case 14:
         {
+            //Programa que calcula las combinaciones de un numero palindromo al multiplicar dos numeros de 3 dígitos.
 
+            int A = 100, B, acumulador2; // Se inicia A en 100 puesto que es el primer numero de 3 dígitos
+            bool found;
 
+            cout << "Ingrese un numero palindromo de 3 cifras: ";
+            cin >> B;
+
+            while(found==false){
+                for(;A<1000;A++){
+                    int acumulador = A*B;
+                    int auxiliar = acumulador;
+                    int C1=0;
+                    while(auxiliar>0){
+                        //cambiar C por acumulador dado que contiene el valor de la multiplicacion
+                        C1 = C1+auxiliar%10;
+                        C1 = C1*10;
+                        auxiliar = auxiliar/10;
+                        if (C1/10==acumulador){
+                            found = true;
+                            acumulador2 = C1/10;
+
+                            cout << "una de las posibles respuestas es: " << A << "*" << B << "= " <<  acumulador2 << endl;
+                        }
+                    }
+                }
+            }
 
             espera();
             break;}
